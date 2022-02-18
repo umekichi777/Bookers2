@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'users/edit'
 
-  resources :books, only: [:new, :index, :show, :edit,]
+  resources :books, only: [:new, :create, :index, :show, :edit,]
  
   get 'homes/top'
   get 'homes/about' => 'homes#about', as: 'about'
