@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/edit'
 
   resources :books, only: [:new, :create, :index, :show, :edit,]
+  resources :users, only: [:show, :edit]
  
   get 'homes/top'
   get 'homes/about' => 'homes#about', as: 'about'
