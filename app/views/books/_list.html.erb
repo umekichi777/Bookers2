@@ -1,15 +1,23 @@
 <!--ユーザー情報-->
 <h2>User info</h2>
-  <%= books.each do |book| %>
-    <%= image_tag book.user.get_profile_image(100, 100) %>
-    <%= book.user.name %>
-    <%= book.user.introduction %>
-    
+  <%= users.each do |user| %>
+    <%= image_tag user.get_profile_image(100, 100) %>
+    <%= user.name %>
+    <%= user.introduction %>
+
     <%= link_to 'e', edit_user_path(book.id) %>
   <% end %>
 
 <!--投稿フォーム-->
 <h2>New book</h2>
+<% if book.errors.any? %>
+  <%= book.errors.count %>
+  <ul>
+    <% book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
   <%= form_with model: book do |f| %>
     <p>Title</p>
       <%= f.text_field :title %>

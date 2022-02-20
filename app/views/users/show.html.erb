@@ -1,10 +1,10 @@
-<%= render 'books/list', books: @books %>
+<%= render 'books/list', users: @users %>
 <%= render 'bookslist', book: @book %>
 
 <!--ユーザーの投稿一覧-->
 <div>
   <h2>Books</h2>
-    <% @xbooks.each do |book| %>
+    <% @books.each do |book| %>
     <div>
       <%= image_tag book.user.get_profile_image(50, 50) %>
       <p><%= book.title %>
