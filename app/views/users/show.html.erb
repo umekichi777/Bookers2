@@ -1,17 +1,12 @@
-<!--ユーザー詳細-->
-<div>
-  <h2>User info</h2>
-  <%= image_tag @user.get_profile_image(100, 100) %>
-  <h4><%= @user.name %></h4>
-</div>
-
 <!--ユーザーの投稿一覧-->
 <div>
   <h2>Books</h2>
     <% @books.each do |book| %>
     <div>
-      <%= image_tag @user.get_profile_image(50, 50) %>
-      <p><%= book.title %></p>
+      <%= image_tag book.user.get_profile_image(50, 50) %>
+      <p><%= book.title %>
+        <%= link_to book_path(book.id) %>
+      </p>
       <p><%= book.body %></p>
     </div>
     <% end %>
