@@ -40,10 +40,14 @@
         </li>
       <% end %>
     </header>
-    
+
     <footer>
       <p>CopyRight Infratop.i</p>
     </footer>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag (:div, value, class: "#{key}") %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
