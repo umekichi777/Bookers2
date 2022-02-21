@@ -1,7 +1,6 @@
 <%= flash[:complete] %>
 
-<%= render 'list', users: @users %>
-<%= render 'list', book: @book %>
+<%= render 'list', user: current_user, book: @book %>
 
 <!--Book一覧-->
 <h2>Books</h2>
