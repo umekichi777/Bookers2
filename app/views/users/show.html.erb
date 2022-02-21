@@ -1,4 +1,5 @@
-<%= render 'list', user: current_user, book: @book %>
+<%= flash[:complete] %>
+<%= render 'books/list', user: current_user, book: @book %>
 
 <!--ユーザーの投稿一覧-->
 <div>
@@ -6,9 +7,9 @@
     <% @books.each do |book| %>
     <div>
       <%= image_tag book.user.get_profile_image(50, 50) %>
-      <p><%= book.title %>
-        <%= link_to book_path(book.id) %>
-      </p>
+      <%= link_to book_path(book.id) do %>
+        <p><%= book.title %></p>
+      <% end %>
       <p><%= book.body %></p>
     </div>
     <% end %>
