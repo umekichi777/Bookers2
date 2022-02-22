@@ -14,16 +14,16 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expend -lg navbar-dark bg-dark">
+      <nav>
         <div class="container">
-            <%= link_to root_path, class: "navbar-brand" do %>
+            <%= link_to root_path do %>
               <span>Bookers</span>
             <% end %>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+          <div>
+            <ul>
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to "Home", books_path, class: "nav-link text-light" do %>
+                  <%= link_to "Home", books_path do %>
                     <i class="fa-solid fa-house-chimney"></i>
                   <% end %>
                 </li>
@@ -38,21 +38,21 @@
                 </li>
               <% else %>
                 <li>
-                  <%= link_to "Home", root_path, class: "nav-link text-light" do %>
+                  <%= link_to "Home", root_path do %>
                     <i class="fa-solid fa-house-chimney"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "About", about_path, class: "nav-link text-light" do %>
+                  <%= link_to "About", about_path do %>
                     <i class="fa-solid fa-link"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-light" do %>
+                  <%= link_to "Sign up", new_user_registration_path do %>
                     <i class="fa-solid fa-user-plus"></i>
                   </li>
                 <li>
-                  <%= link_to "Log in", new_user_session_path, class: "nav-link text-light" do %>
+                  <%= link_to "Log in", new_user_session_path do %>
                     <i class="fa-solid fa-right-to-bracket"></i>
                   <% end %>
                 </li>
