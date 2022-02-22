@@ -1,6 +1,7 @@
-<%= flash[:complete] %> 
+<%= flash[:notice] %>
+<%= flash[:complete] %>
 
-<%= render 'list', user: current_user, book: @book %>
+<%= render 'list', user: current_user, book: @xbook %>
 
 <h2>Book detail</h2>
 
@@ -10,23 +11,21 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-    <% @books.each do |book| %>
-    <tbody>
-      <tr>
-        <td><%= image_tag book.user.get_profile_image(50, 50) %>
-        <%= link_to user_path(book.user) do %>
-          <%= book.user.name %>
-        <% end %>
-        </td>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <% if book.user == current_user %>
-          <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-        <% end %>
-        <% if book.user == current_user %>
-          <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
-        <% end %>
-      </tr>
-    </tbody>
-    <% end %>
+      <tbody>
+        <tr>
+          <td><%= image_tag @book.user.get_profile_image(50, 50) %>
+          <%= link_to user_path(@book.user) do %>
+            <%= @book.user.name %>
+          <% end %>
+          </td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if @book.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+          <% end %>
+          <% if @book.user == current_user %>
+            <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+          <% end %>
+        </tr>
+      </tbody>
   </table>
