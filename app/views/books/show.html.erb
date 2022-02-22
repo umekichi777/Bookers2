@@ -1,28 +1,34 @@
-<%= render 'list', user: current_user, book: @xbook %>
+<div class="container">
+  <div class="row">
+    <%= render 'list', user: current_user, book: @xbook %>
 
-<h2>Book detail</h2>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-      <tbody>
-        <tr>
-          <td><%= image_tag @book.user.get_profile_image(50, 50) %>
-          <%= link_to user_path(@book.user) do %>
-            <%= @book.user.name %>
-          <% end %>
-          </td>
-          <td><%= @book.title %></td>
-          <td><%= @book.body %></td>
-          <td>
-            <% if @book.user == current_user %>
-              <%= link_to "Edit", edit_book_path(@book.id) %>
-              <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-  </table>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag @book.user.get_profile_image(50, 50) %>
+                <%= link_to user_path(@book.user) do %>
+                  <%= @book.user.name %>
+                <% end %>
+              </td>
+              <td><%= @book.title %></td>
+              <td><%= @book.body %></td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to "Edit", edit_book_path(@book.id) %>
+                <% end %>
+              </td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
