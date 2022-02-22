@@ -1,6 +1,3 @@
-<%= flash[:notice] %>
-<%= flash[:complete] %>
-
 <%= render 'list', user: current_user, book: @xbook %>
 
 <h2>Book detail</h2>
@@ -24,7 +21,7 @@
             <% if @book.user == current_user %>
               <%= link_to "Edit", edit_book_path(@book.id) %>
               <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-          <% end %>
+            <% end %>
           </td>
         </tr>
       </tbody>
