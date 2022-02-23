@@ -11,14 +11,21 @@
             </ul>
         <% end %>
         <%= form_with model: @user do |f| %>
-          <p>Name</p>
-            <%= f.text_field :name, autofocus: true, id: "inputName", placeholder: "名前"%>
-          <p>Image</p>
-            <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-          <p>Introduction</p>
-            <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "紹介" %>
-
-            <%= f.submit "Update User" %>
+          <div class="form-group">
+            <p>Name</p>
+              <%= f.text_field :name, autofocus: true %>
+          </div>
+          <div class="form-group">
+            <p>Image</p>
+              <%= f.file_field :profile_image, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <p>Introduction</p>
+              <%= f.text_area :introduction, autofocus: true %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Update User", class: "btn btn-secondary" %>
+          </div>
         <% end %>
     </div>
   </div>
