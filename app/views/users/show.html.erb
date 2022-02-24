@@ -1,6 +1,6 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'books/list', user: current_user, book: @book %>
+    <%= render 'books/list', user: @user, book: @book %>
 
 <!--ユーザーの投稿一覧-->
     <div class="col-md-8 offset-md-1">
@@ -18,7 +18,11 @@
           <% @books.each do |book| %>
             <tbody>
               <tr>
-                <td><%= image_tag book.user.get_profile_image(50, 50) %></td>
+                <td>
+                  <%= link_to user_path(book.user.id) do %>
+                  <%= image_tag book.user.get_profile_image(50, 50) %>
+                  <% end %>
+                </td>
                 <td>
                   <%= link_to book_path(book.id) do %>
                     <p><%= book.title %></p>
